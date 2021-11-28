@@ -7,6 +7,8 @@ gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem "slim-rails"
+gem 'breadcrumbs_on_rails'
+gem 'meta-tags'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
@@ -35,6 +37,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
   gem 'spring'
+  gem 'annotate'
 end
 
 group :test do
