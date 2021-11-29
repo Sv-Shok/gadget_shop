@@ -1,4 +1,59 @@
-ul
-  li = @brands.to_a
-ul
-  li = @hits.to_a
+/ banner-starts
+.bnr id="home"
+  .callbacks_container id="top"
+    ul.rslider id="slider4"
+      li 
+        = image_tag("bnr-1.jpg", alt: "")
+      li 
+        = image_tag("bnr-2.jpg", alt: "")
+      li 
+        = image_tag("bnr-3.jpg", alt: "")
+  .clearfix              
+/ banner-ends
+
+- if @brands.nil?
+  h2 no brands
+- else 
+  .about 
+    .container 
+      .about-top.grid-1 
+        - @brands.each do |i|
+          .col-md-4.about-left 
+            figure.effect-bubba
+              = image_tag(i.img, alt:"", class: "img-responsive")
+              figcaption 
+                h2 
+                  = i.title
+                p 
+                  = i.description
+
+- if @hits.nil?
+  h2 no hits 
+- else 
+  .product 
+    .container 
+      .product-top 
+        .product-one 
+          - @hits.hit.each do |hit|
+            .col-md-3.product-left.reset-pr
+              .product-main.simpleCart_shelfItem 
+                a.mask href="product/#{hit.id}"
+                  = image_tag(hit.img, alt: "", class: "img-responsive zoom-img")
+                = 
+                .product-bottom 
+                  h3 
+                    a href="product/#{hit.id}"
+                     = "#{hit.title}"
+                  p Explore Now
+                  h4 
+                    = link_to 'cart_items', class: 'add-to-cart-link', data: { id: hit.id } do 
+                      i 
+                    span.item_price
+                      = "$ #{hit.price}"
+                    - if hit.old_price 
+                      small 
+                        del 
+                          = "#{hit.old_price}"
+                .srch 
+                  span - 50%
+          .clearfix        
